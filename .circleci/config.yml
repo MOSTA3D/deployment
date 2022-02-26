@@ -33,7 +33,7 @@ jobs:
           name: udgram-frontend deploy
           command: |
             npm run frontend:deploy
-      -run:
+      - run:
           name: udgram-backend deploy
           command: |
             npm run backend:deploy
