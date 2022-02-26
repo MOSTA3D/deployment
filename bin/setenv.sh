@@ -1,7 +1,7 @@
-export POSTGRES_USERNAME=$POSTGRES_USERNAME &&
-export POSTGRES_PASSWORD=$POSTGRES_PASSWORD &&
-export POSTGRES_DB=$POSTGRES_DB &&
-export PORT=$PORT &&
-export POSTGRES_HOST=$POSTGRES_HOST &&
-export AWS_REGION=$AWS_REGION &&
-export JWT_SECRET=$JWT_SECRET
+# export POSTGRES_USERNAME="postgres" &&
+# export POSTGRES_PASSWORD="postgres" &&
+# export POSTGRES_DB="postgres" &&
+# export POSTGRES_HOST="database-1.cbplw7u4yuyy.us-east-1.rds.amazonaws.com" &&
+# export PORT=5432 &&
+# export AWS_REGION=us-east-1 &&
+# export JWT_SECRET=secret
