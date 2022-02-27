@@ -7,9 +7,6 @@ orbs:
 jobs:
   # different jobs are calles later in the workflows sections
   build:
-    filters:
-      branches:
-        only: master
     docker:
       # the base image can run most needed actions with orbs
       - image: "cimg/base:stable"
@@ -58,3 +55,10 @@ jobs:
           name: udgram-backend deploy
           command: |
             npm run backend:deploy
+workflows:
+  udagram:
+    jobs:
+      - build:
+          filters:
+              branches:
+                only: master
