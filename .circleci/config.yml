@@ -1,24 +1,35 @@
 version: 2.1
 orbs:
+  # orgs contain basc recipes and reproducible actions (install node, aws, etc.)
   node: circleci/node@4.1.0
   aws-cli: circleci/aws-cli@1.3.1
   eb: circleci/aws-elastic-beanstalk@2.0.1
 jobs:
+  # different jobs are calles later in the workflows sections
   build:
     docker:
+      # the base image can run most needed actions with orbs
       - image: "cimg/base:stable"
     steps:
       - node/install:
+          # node@latest > 17 doesn't work
           node-version: '16.13'
       - checkout
       - aws-cli/setup
       - eb/setup
-      # install dependencies in both apps
+
       - run:
+          # start testing
+          name: testing
+          command: |
+            npm run backend:test && npm run frontend:test
+      - run:
+          # setting environment variable
           name: providing environment variables
           command: |
             chmod 755 ./bin/setenv.sh && ./bin/setenv.sh
       - run:
+          # install dependencies in both apps
           name: udgram-frontend install
           command: |
             npm run frontend:install
@@ -26,6 +37,7 @@ jobs:
           name: udgram-backend install
           command: |
             npm run backend:install
+      # building both apps
       - run:
           name: udgram-frontend build
           command: |
@@ -34,6 +46,7 @@ jobs:
           name: udgram-backend build
           command: |
             npm run backend:build
+      # deploying both apps
       - run:
           name: udgram-frontend deploy
           command: |
