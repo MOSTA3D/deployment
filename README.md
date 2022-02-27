@@ -64,4 +64,6 @@ The e2e tests are using Protractor and Jasmine.
 
 [License](LICENSE.txt)
 
-[![CircleCI](https://circleci.com/gh/circleci/circleci-docs/tree/teesloane-patch-5.svg?style=svg)](https://circleci.com/gh/circleci/circleci-docs/?branch=teesloane-patch-5)
+## Status build
+
+[![MOSTA3D](https://circleci.com/gh/MOSTA3D/deployment.svg?style=svg)](https://app.circleci.com/pipelines/github/MOSTA3D/deployment?branch=master&filter=all)
